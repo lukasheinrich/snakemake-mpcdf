@@ -1,0 +1,47 @@
+[workspace]
+authors = ["Clemens Lange <clemens.lange@cern.ch>"]
+channels = ["conda-forge", "bioconda"]
+name = "snakemake-psi-tier3-example"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+# Local execution (single core, no cluster)
+local = """ rm -rf results \
+&& snakemake --verbose --cores 1 --printshellcmds --snakefile workflow/Snakefile sort_script
+"""
+
+# SLURM cluster execution
+slurm = """
+rm -rf results \
+&& export SNAKEMAKE_SLURM_PARTITIONS="$PWD/partitions.yaml" \
+&& snakemake --executor slurm \
+  --workflow-profile "$PWD/profiles" \
+  -j unlimited \
+  --verbose \
+  --printshellcmds \
+  --snakefile workflow/Snakefile sort_script
+"""
+
+# SLURM cluster execution with Apptainer containers
+slurm_apptainer = """
+rm -rf results \
+&& export SNAKEMAKE_SLURM_PARTITIONS="$PWD/partitions.yaml" \
+&& snakemake --executor slurm \
+  --workflow-profile "$PWD/profiles" \
+  -j unlimited \
+  --verbose \
+  --software-deployment-method apptainer \
+  --printshellcmds \
+  --snakefile workflow/Snakefile sort_script
+"""
+
+# Local execution with Apptainer containers
+apptainer = """ rm -rf results \
+&& snakemake --verbose --cores 1 --software-deployment-method apptainer --printshellcmds --snakefile workflow/Snakefile sort_script
+"""
+
+
+[dependencies]
+snakemake = ">=9.16.3,<10"
+snakemake-executor-plugin-slurm = ">=2.3.1,<3"

@@ -1,0 +1,5 @@
+# Workflow parameters
+# Adjust these values to control the number generation and workflow behavior
+
+num_files: 5            # Number of parallel jobs to generate random numbers
+numbers_per_file: 10    # How many random numbers each job generates

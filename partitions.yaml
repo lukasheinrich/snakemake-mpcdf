@@ -1,0 +1,18 @@
+partitions:
+  gpu:
+    max_gpu: 16
+    max_runtime: 7-00:00:00
+    max_threads: 40
+  long:
+    max_runtime: 7-00:00:00
+    max_threads: 237
+  qgpu:
+    max_gpu: 16
+    max_runtime: 01:00:00
+    max_threads: 40
+  short:
+    max_runtime: 01:00:00
+    max_threads: 237
+  standard:
+    max_runtime: '12:00:00'
+    max_threads: 237
