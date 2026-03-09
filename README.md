@@ -1,4 +1,4 @@
-# Snakemake on the CMS Tier-3 at PSI
+# Snakemake with SLURM on the CMS Tier-3 at PSI
 
 This repository demonstrates a Snakemake workflow with three stages:
 1. **Generate** - Create random numbers in parallel jobs
@@ -39,10 +39,19 @@ pixi add snakemake
 pixi add snakemake-executor-plugin-slurm
 ```
 
-Generate partition file:
+Generate partition file (**this has to be done for each cluster**):
 
 ```
 generate-slurm-partition-config -o partitions.yaml
+```
+
+Please also mind that the `profiles/config.yaml` needs to be adjusted to the queue
+names and slurm user of the given cluster:
+
+```
+default-resources:
+  slurm_partition: short  # Default SLURM partition
+  slurm_account: t3       # SLURM account for job submission
 ```
 
 To test the local workflow:
