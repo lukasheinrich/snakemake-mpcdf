@@ -45,9 +45,18 @@ Please also mind that the `profiles/config.yaml` needs to be adjusted to the que
 names and slurm user of the given cluster:
 
 ```
+# Workflow profile for SLURM executor
+# This file configures how Snakemake interacts with the SLURM cluster
+
+executor: slurm
+latency-wait: 30  # Wait time (seconds) for output files to appear on shared filesystem
+slurm-logdir: "${HOME}/.snakemake/slurm_logs"
+
+# Default resources for all SLURM jobs
 default-resources:
-  slurm_partition: short  # Default SLURM partition
-  slurm_account: t3       # SLURM account for job submission
+  slurm_partition: small  # Default SLURM partition
+  slurm_account: mpp_cpu       # SLURM account for job submission
+  runtime: 10
 ```
 
 To test the local workflow:
