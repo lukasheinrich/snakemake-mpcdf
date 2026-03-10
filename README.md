@@ -1,4 +1,4 @@
-# Snakemake with SLURM on the CMS Tier-3 at PSI
+# Snakemake with SLURM on MPCDF Raven Cluster
 
 This repository demonstrates a Snakemake workflow with three stages:
 1. **Generate** - Create random numbers in parallel jobs
