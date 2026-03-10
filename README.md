@@ -7,10 +7,6 @@ This repository demonstrates a Snakemake workflow with three stages:
 
 Clone this repository. Set up `pixi`:
 
-```shell
-source /cvmfs/cms-griddata.cern.ch/cat/sw/pixi/latest/setup.sh
-```
-
 Run tasks:
 
 ```shell
