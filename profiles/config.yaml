@@ -7,5 +7,6 @@ slurm-logdir: "${HOME}/.snakemake/slurm_logs"
 
 # Default resources for all SLURM jobs
 default-resources:
-  slurm_partition: short  # Default SLURM partition
-  slurm_account: t3       # SLURM account for job submission
+  slurm_partition: small  # Default SLURM partition
+  slurm_account: mpp_cpu       # SLURM account for job submission
+  runtime: 10
