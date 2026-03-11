@@ -28,8 +28,8 @@ pixi run apptainer
 Set up `pixi` as shown above. Then initialise the workspace:
 
 ```shell
-pixi init snakemake-psi-tier3-example
-cd snakemake-psi-tier3-example
+pixi init snakemake-mpcdf
+cd snakemake-mpcdf
 pixi workspace channel add bioconda
 pixi add snakemake
 pixi add snakemake-executor-plugin-slurm
